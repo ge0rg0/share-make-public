@@ -2,6 +2,20 @@
 
 <alfresco-config>
 
+   <!-- Document Library Custom Code config section -->
+   <config evaluator="string-compare" condition="DocLibCustom">
+      <!--
+         Custom Code dependencies.
+
+         Note: files specified in the "src" attribute resolve relative to the /share/res/ servlet context.
+         -->
+         <dependencies>
+            <js src="components/make-public/make-public-action.js" />
+         </dependencies>
+      
+      <dependencies />
+   </config>
+   
    <config evaluator="string-compare" condition="DocumentLibrary">
        
         <!--
