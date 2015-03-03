@@ -37,3 +37,7 @@ Usage
 A new Make Public action will appear at the document library. If applied to a document, it will add the Guest user as a consumer to the document, making it publicly accessible via the shown URL.
 
 If applied to a folder it will add the Guest user as a consumer to the folder and all its contents. Below the description a special URL to share its contents publicly will be shown.
+
+Screenshots
+====================
+https://github.com/ge0rg0/share-make-public/wiki
