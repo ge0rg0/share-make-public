@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>eu.xfel</groupId>
+    <artifactId>share-make-public</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>share-make-public project</name>
+    <url>http://share.alfresco.com</url>
+	<!-- New Alfresco Maven Community Repository instance, pro -->
+    <repositories>
+        <repository>
+            <id>alfresco-public</id>
+            <url>http://maven.alfresco.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>alfresco-public-snapshots</id>
+            <url>http://maven.alfresco.com/nexus/content/groups/public-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+     <!-- Configuration point for the build time properties -->
+    <properties>
+        <alfresco.version>4.2.f</alfresco.version>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+		<!-- Spring Surf dependencies are available via proxy via maven.alfresco.com so just add them below -->
+        <dependency>
+            <groupId>org.springframework.extensions.surf</groupId>
+            <artifactId>spring-surf</artifactId>
+            <version>1.2.0-SNAPSHOT</version>
+            <!--scope>provided</scope-->
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.extensions.surf</groupId>
+            <artifactId>spring-webscripts</artifactId>
+            <version>1.2.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+       <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-data-model</artifactId>
+            <version>${alfresco.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-remote-api</artifactId>
+            <version>${alfresco.version}</version>
+            <scope>provided</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-web-client</artifactId>
+            <version>${alfresco.version}</version>
+            <scope>provided</scope>
+             <exclusions>
+               <exclusion>
+                  <groupId>org.alfresco</groupId>
+                  <artifactId>alfresco-web-framework-commons</artifactId>
+              </exclusion>
+           </exclusions>
+          </dependency>
+          
+          
+    </dependencies>
+    <build>
+        <plugins>
+             <!-- Needed for cross OS compatibility in acp/zip encoding -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <!-- By default as per http://code.google.com/p/maven-alfresco-archetypes/issues/detail?id=7 FTL are not filtered to avoid corruption.
+                        | This behavior can be relaxed (in case filtering is needed in the FTLs) by selecting which files are filtered and which not as described 
+                        | here http://code.google.com/p/maven-alfresco-archetypes/issues/detail?id=7#c3
+                        -->
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ftl</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            
+            <!-- Compresses javascript and css files -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>    
+                <configuration>
+                    <includes>
+                        <include>META-INF/**</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

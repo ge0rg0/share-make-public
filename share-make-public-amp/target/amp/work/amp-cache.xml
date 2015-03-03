@@ -1,0 +1,21 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>lib/share-1.0-SNAPSHOT.jar</string>
+          <string>config/alfresco/module/share/module-context.xml</string>
+          <string>config/alfresco/module/share/log4j.properties</string>
+          <string>config/alfresco/module/share/context/service-context.xml</string>
+          <string>config/alfresco/web-extension/share-config-custom.xml</string>
+          <string>web/components/documentlibrary/actions/make-public-action-16.png</string>
+          <string>web/components/documentlibrary/actions/remove-public-action-16.png</string>
+          <string>web/components/documentlibrary/indicators/public-file-indicator-16.png</string>
+          <string>web/licenses/README-licenses.txt</string>
+          <string>module.properties</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>
