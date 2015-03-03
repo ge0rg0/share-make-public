@@ -18,7 +18,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.alfresco</groupId>
-	<artifactId>share</artifactId>
+	<artifactId>share-make-public</artifactId>
 	<packaging>amp</packaging>
 	<name>Share Make public AMP project</name>
 	<!--
@@ -31,8 +31,8 @@
 		below as the AMP module version. Instead we use the
 		buildnumber-maven-plugin. This requires a scm connection.
 	-->
-	<version>1.0-SNAPSHOT</version>
-	<description>Test AMP project</description>
+	<version>1.0</version>
+	<description>Share content in Alfresco externally via a Share Action in the document library</description>
 	<repositories>
 		<repository>
 			<id>alfresco-public-snapshots</id>
