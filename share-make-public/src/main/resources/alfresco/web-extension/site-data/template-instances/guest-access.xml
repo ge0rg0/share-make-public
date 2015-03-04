@@ -2,9 +2,8 @@
 <template-instance>
    <template-type>eu/xfel/guest-access</template-type>
    <components>
-
       <component>
-         <region-id>header</region-id>
+         <region-id>guest-header</region-id>
          <url>/eu/xfel/make-public/header</url>
       </component>
       <component>

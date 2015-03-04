@@ -19,17 +19,4 @@ function main(nodeRef)
         status.message = "One or more parameters are missing";
         return;
     }
-    /*
-   var space = null;
-   if (nodeRef != null) {
-       try {
-           logger.log("Connecting to server webscript...");
-           var connector = remote.connect("share-proxy");
-           space = connector.get("/eu/xfel/make-public/doclist?nodeRef=" + nodeRef);
-       } catch (err) {
-           logger.log("Failure to load document list "+err.message);
-       }
-       
-   }
-   return space;*/
 }

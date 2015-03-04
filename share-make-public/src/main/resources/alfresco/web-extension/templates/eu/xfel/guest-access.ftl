@@ -4,7 +4,7 @@
 
 <@templateBody>
    <div id="hd">
-      <@region id="header" scope="global" protected=true />
+      <@region id="guest-header" scope="template"/>
    </div>
    <div id="bd">
       <div>
